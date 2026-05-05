@@ -5,4 +5,5 @@ public class Magazine {
     private String publisher ;
 
 
+
 }
