@@ -8,5 +8,7 @@ public class Constants {
     public static  String STATUS_AVAILABLE   = "Available";
     public static String STATUS_CHECKED_OUT = "Checked out";
 
+    public static  String SUCCESS_ITEM_ADDED= "Item added successfully.";
+
 
 }
