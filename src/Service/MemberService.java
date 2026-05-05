@@ -17,4 +17,10 @@ public class MemberService {
         members.add(member);
         System.out.println(Constants.SUCCESS_MEMBER_REGISTERED);
     }
+    public Member findMemberById(String id){
+        for (Member member:members){
+         if ()
+        }
+    }
+
 }
