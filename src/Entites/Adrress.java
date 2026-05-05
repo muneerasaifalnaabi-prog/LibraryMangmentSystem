@@ -16,6 +16,9 @@ public class Adrress {
         }
 
         public void setStreet(String street) {
+                if (street==null){
+                        System.out.println("Street cannot be empty.");
+                }
                 this.street = street;
         }
 
