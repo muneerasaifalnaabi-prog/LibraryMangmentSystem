@@ -1,10 +1,12 @@
 package Service;
 
 import Constant.Constants;
+import Entites.Adrress;
 import Entites.Members;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class MemberService {
 
@@ -39,7 +41,28 @@ public class MemberService {
             member.getDetails();
         }
     }
+    public void register() {
+        Scanner scanner = new Scanner(System.in);
 
+        System.out.println("Enter Member id");
+        String memberId = scanner.nextLine();
+
+        System.out.println("Member Name");
+        String name = scanner.nextLine();
+
+        System.out.println("Enter Street ");
+        String street = scanner.nextLine();
+
+        System.out.println("Enter City");
+        String city = scanner.nextLine();
+
+        System.out.println("Enter Postalcode");
+        String postalCode = scanner.nextLine();
+
+        Adrress address = new Adrress(street, city, postalCode);
+        Members member = new Members(memberId, name, address);
+        registerMember(member);
+    }
 
 
 
