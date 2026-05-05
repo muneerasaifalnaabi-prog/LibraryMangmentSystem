@@ -1,3 +1,4 @@
+import Constant.MenuMessages;
 import Menu.Menu;
 import Service.BorrowingService;
 import Service.LibraryItemService;
@@ -26,6 +27,9 @@ public class Main {
                     Boolean itemMenuContinue=true;
                     while (itemMenuContinue){
                         System.out.println("-------------Item Menu---------");
+                        System.out.println(MenuMessages.ITEM_MENU_MESSAGE);
+                        Integer itemOption = input.nextInt();
+                        itemMenuContinue =itemService.handleItemMenu(itemOption);
 
                     }
                 }

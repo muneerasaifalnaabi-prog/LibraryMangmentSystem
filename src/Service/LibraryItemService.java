@@ -99,16 +99,36 @@ public class LibraryItemService {
 
 
     public Boolean handleItemMenu(Integer itemOption) {
-        switch (itemOption){
-            case 1->{
-                addedItem();
+        switch (itemOption) {
+            case 1 -> {
+                addBook();
             }
-
+            case 2 -> {
+                addMagazine();
+            }
+            case 3 -> {
+                if (items.isEmpty()) {
+                    System.out.println(Constants.NO_ITEMS_IN_SYSTEM);
+                } else {
+                    listOfAvailableBooks();
+                }
+            }
+            case 4 -> {
+                if (items.isEmpty()) {
+                    System.out.println(Constants.NO_ITEMS_IN_SYSTEM);
+                } else {
+                    search();
+                }
+            }
+            case 5 -> {
+                return false;
+            }
         }
-
+        return true;
+    }
     }
 
 
 
 
-}
+

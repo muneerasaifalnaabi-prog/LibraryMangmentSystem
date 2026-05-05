@@ -21,5 +21,7 @@ public class Constants {
     public static  String BORROW_LIMIT_REACHED ="Borrow limit reached. Maximum 3 items allowed.";
     public static String SUCCESS_CHECKED_OUT ="Item checked out successfully.";
 
+    public static String NO_ITEMS_IN_SYSTEM ="No Items In System.";
+
 
 }
