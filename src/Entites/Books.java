@@ -7,11 +7,10 @@ public class Books extends LibraryItem {
     private String isbn;
 
     public Books(String id, String title, String author, String isbn) {
-        super(id, title, status);
+        super(id, title, true);
         this.author = author;
         this.isbn = isbn;
     }
-
     public String getAuthor() {
         return author;
     }

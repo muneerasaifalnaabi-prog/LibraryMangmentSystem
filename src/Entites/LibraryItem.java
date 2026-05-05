@@ -13,7 +13,6 @@ public class LibraryItem implements Borrowable {
         this.title = title;
         this.status = status;
     }
-
     public LibraryItem(String id, String title, int issueNumber, String publisher) {
     }
 

@@ -23,7 +23,7 @@ public class LibraryItemService {
 
     public LibraryItem findBookById(String id){
         for (LibraryItem item :items){
-            if (!item.getId().equals(id)){
+            if (item.getId().equals(id)){
                 return item;
             }
         }
