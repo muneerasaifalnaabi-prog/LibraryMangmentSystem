@@ -1,6 +1,6 @@
 package Entites;
 
-public class Magazine {
+public class Magazine extends LibraryItem{
     private String issueNumber;
     private String publisher ;
 
