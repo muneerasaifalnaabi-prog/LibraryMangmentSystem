@@ -35,6 +35,11 @@ public class LibraryItemService {
         }
     }
     public void searchByTitle(String t){
+        System.out.println("Books Details By name");
+        boolean foundBook=false;
+        for (LibraryItem item : items) {
+
+        }
 
 
     }
