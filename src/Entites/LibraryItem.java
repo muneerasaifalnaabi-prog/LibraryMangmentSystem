@@ -50,7 +50,12 @@ public class LibraryItem implements Borrowable {
 
     @Override
     public Boolean returnItem() {
-
+        if (status == false) {
+            System.out.println(Constants.ERROR_NOT_CHECKED_OUT);
+            return false;
+        }
+        this.status = true;
+        return true;
     }
 
 
