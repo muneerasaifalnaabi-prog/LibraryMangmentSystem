@@ -9,4 +9,8 @@ public class BorrowingService {
 
     public static int MAX_ITEMS=3;
 
+    public BorrowingService(LibraryItem libraryItem, Members members) {
+        this.libraryItem = libraryItem;
+        this.members = members;
+    }
 }
