@@ -38,7 +38,9 @@ public class LibraryItemService {
         System.out.println("Books Details By name");
         boolean foundBook=false;
         for (LibraryItem item : items) {
-
+            if (item.getTitle().toLowerCase().contains(t.toLowerCase())) {
+                item.getDetails();
+            }
         }
 
 
