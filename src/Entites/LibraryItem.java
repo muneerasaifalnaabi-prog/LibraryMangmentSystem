@@ -6,14 +6,11 @@ import Constant.Constants;
 public class LibraryItem implements Borrowable {
     private String id;
     private String title ;
-    private Boolean status;
-
+    private Boolean status=true;
     public LibraryItem(String id, String title, Boolean status) {
         this.id = id;
         this.title = title;
         this.status = status;
-    }
-    public LibraryItem(String id, String title, int issueNumber, String publisher) {
     }
 
     public String getId() {
