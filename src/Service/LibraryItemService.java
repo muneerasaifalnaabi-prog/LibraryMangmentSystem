@@ -3,6 +3,7 @@ package Service;
 import Constant.Constants;
 import Entites.Books;
 import Entites.LibraryItem;
+import Entites.Magazine;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -55,7 +56,7 @@ public class LibraryItemService {
     public void addBook() {
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Enter Item ID");
+        System.out.println("Enter Books ID");
         String id = scanner.nextLine();
 
         System.out.println("Enter Title Of Book");
@@ -70,6 +71,27 @@ public class LibraryItemService {
         Books book = new Books(id, title, author, isbn);
         addedItem(book);
     }
+    public void addMagazineFromInput() {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Enter Magazine Id");
+        String id = scanner.nextLine();
+
+        System.out.println("Enter Title Of Magazine");
+        String title = scanner.nextLine();
+
+        System.out.println("Enter Issue Number");
+        int issueNumber = scanner.nextInt();
+        scanner.nextLine();
+
+        System.out.println("Enter Publisher");
+        String publisher = scanner.nextLine();
+
+        Magazine magazine = new Magazine(id, title, issueNumber, publisher);
+        addedItem(magazine);
+    }
+
+
     public Boolean handleItemMenu(Integer itemOption) {
         switch (itemOption){
             case 1->{

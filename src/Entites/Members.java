@@ -58,6 +58,6 @@ public class Members {
         System.out.println("  ID       : " + id);
         System.out.println("  Name     : " + name);
         System.out.println("  Address  : " + adress);
-        System.out.println("  Borrowed : " + getBorrowedItems(item).size() + " item(s)");
+       // System.out.println("  Borrowed : " + getBorrowedItems(item).size() + " item(s)");
     }
 }

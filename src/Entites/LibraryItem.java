@@ -14,6 +14,9 @@ public class LibraryItem implements Borrowable {
         this.status = status;
     }
 
+    public LibraryItem(String id, String title, int issueNumber, String publisher) {
+    }
+
     public String getId() {
         return id;
     }
