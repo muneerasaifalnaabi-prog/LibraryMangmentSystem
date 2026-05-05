@@ -8,121 +8,123 @@ import Entites.Magazine;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import java.util.UUID;
 
 public class LibraryItemService {
 
     private List<LibraryItem> items = new ArrayList<>();
 
-    public List<LibraryItem> getItems() {
-        return items;
-    }
-
-    public void addedItem(LibraryItem item) {
+    public void addItem(LibraryItem item) {
         items.add(item);
         System.out.println(Constants.SUCCESS_ITEM_ADDED);
     }
 
-    public LibraryItem findBookById(String id) {
+    public LibraryItem findItemById(String idString) {
         for (LibraryItem item : items) {
-            if (item.getId().equals(id)) {
-                return item;
-            }
+            if (item.getId().toString().equals(idString)) return item;
         }
         System.out.println(Constants.ITEM_NOT_FOUND);
         return null;
     }
 
-    public void listOfAvailableBooks() {
+    public LibraryItem findItemById(UUID id) {
+        for (LibraryItem item : items) {
+            if (item.getId().equals(id)) return item;
+        }
+        return null;
+    }
+
+    public LibraryItem selectItemFromList(String action) {
+        if (items.isEmpty()) {
+            System.out.println(Constants.NO_ITEMS_IN_SYSTEM);
+            return null;
+        }
+        System.out.println("\nSelect an item to " + action + ":");
+        for (int i = 0; i < items.size(); i++) {
+            System.out.println((i + 1) + ". " + items.get(i).getTitle() + " (ID: " + items.get(i).getId() + ")");
+        }
+        System.out.print("Enter number: ");
+        Scanner sc = new Scanner(System.in);
+        int index = sc.nextInt() - 1;
+        sc.nextLine();
+        if (index >= 0 && index < items.size()) return items.get(index);
+        System.out.println(Constants.ITEM_NOT_FOUND);
+        return null;
+    }
+
+    public void listAvailableItems() {
         System.out.println("--------- Available Items --------");
-        boolean foundBook = false;
+        boolean found = false;
         for (LibraryItem item : items) {
             if (item.getStatus()) {
                 item.getDetails();
-                foundBook = true;
+                found = true;
             }
         }
-        if (!foundBook) {
-            System.out.println(Constants.NO_ITEMS_IN_SYSTEM);
-        }
+        if (!found) System.out.println(Constants.NO_ITEMS_IN_SYSTEM);
     }
 
-    public void searchByTitle(String t) {
+    public void searchByTitle(String keyword) {
         System.out.println("Search Results:");
-        boolean foundBook = false;
+        boolean found = false;
         for (LibraryItem item : items) {
-            // BUG FIX: null check on title before calling toLowerCase()
-            if (item.getTitle() != null && item.getTitle().toLowerCase().contains(t.toLowerCase())) {
+            if (item.getTitle().toLowerCase().contains(keyword.toLowerCase())) {
                 item.getDetails();
-
-                foundBook = true;
+                found = true;
             }
         }
-        if (!foundBook) {
-            System.out.println(Constants.NO_SEARSH_RESULT);
-        }
+        if (!found) System.out.println("No items found");
     }
 
     public void addBook() {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Enter Books ID");
-        String id = scanner.nextLine();
-        System.out.println("Enter Title Of Book");
-        String title = scanner.nextLine();
-        System.out.println("Enter Author");
-        String author = scanner.nextLine();
-        System.out.println("Enter ISBN");
-        String isbn = scanner.nextLine();
-        Books book = new Books(id, title, author, isbn);
-        addedItem(book);
+        Scanner sc = new Scanner(System.in);
+        Books book = new Books();
+        book.setId(UUID.randomUUID());
+        System.out.print("Enter Title: ");
+        book.setTitle(sc.nextLine());
+        System.out.print("Enter Author: ");
+        book.setAuthor(sc.nextLine());
+        System.out.print("Enter ISBN: ");
+        book.setIsbn(sc.nextLine());
+        addItem(book);
     }
 
     public void addMagazine() {
-        Scanner scanner = new Scanner(System.in);
-
-        System.out.println("Enter Magazine Id");
-        String id = scanner.nextLine();
-
-        System.out.println("Enter Title Of Magazine");
-        String title = scanner.nextLine();
-
-        System.out.println("Enter Issue Number");
-        String issueNumber = scanner.nextLine();
-
-        System.out.println("Enter Publisher");
-        String publisher = scanner.nextLine();
-
-        // BUG FIX: Magazine constructor now takes 4 args including publisher
-        Magazine magazine = new Magazine(id, title, issueNumber, publisher);
-        addedItem(magazine);
+        Scanner sc = new Scanner(System.in);
+        Magazine mag = new Magazine();
+        mag.setId(UUID.randomUUID());
+        System.out.print("Enter Title: ");
+        mag.setTitle(sc.nextLine());
+        System.out.print("Enter Issue Number: ");
+        mag.setIssueNumber(sc.nextLine());
+        System.out.print("Enter Publisher: ");
+        mag.setPublisher(sc.nextLine());
+        addItem(mag);
     }
 
     public void search() {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Enter title To Search");
-        String title = scanner.nextLine();
-        searchByTitle(title);
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter title to search: ");
+        searchByTitle(sc.nextLine());
     }
 
-    public Boolean handleItemMenu(Integer itemOption) {
-        switch (itemOption) {
-            case 1 -> addBook();
-            case 2 -> addMagazine();
+    public Boolean handleItemMenu(Integer option) {
+        switch (option) {
+            case 1 -> {
+                addBook();
+            }
+            case 2 ->{
+                addMagazine();
+            }
             case 3 -> {
-                if (items.isEmpty()) {
-                    System.out.println(Constants.NO_ITEMS_IN_SYSTEM);
-                } else {
-                    listOfAvailableBooks();
-                }
+                listAvailableItems();
             }
             case 4 -> {
-                if (items.isEmpty()) {
-                    System.out.println(Constants.NO_ITEMS_IN_SYSTEM);
-                } else {
-                    search();
-                }
+                search();
             }
-            case 5 -> { return false; }
-
+            case 5 -> {
+                return false;
+            }
         }
         return true;
     }

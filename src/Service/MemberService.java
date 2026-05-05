@@ -7,14 +7,12 @@ import Entites.Members;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import java.util.UUID;
 
 public class MemberService {
 
-    private List<Members> members = new ArrayList<>();
 
-    public List<Members> getMembers() {
-        return members;
-    }
+    private List<Members> members = new ArrayList<>();
 
     public void registerMember(Members member) {
         members.add(member);
@@ -22,11 +20,27 @@ public class MemberService {
     }
 
     public Members findMemberById(String id) {
-        for (Members member : members) {
-            if (member.getId().equals(id)) {
-                return member;
-            }
+        for (Members m : members) {
+            if (m.getId().toString().equals(id)) return m;
         }
+        System.out.println(Constants.MEMBER_NOT_FOUND);
+        return null;
+    }
+
+    public Members selectMemberFromList(String action) {
+        if (members.isEmpty()) {
+            System.out.println(Constants.NO_MEMBERS);
+            return null;
+        }
+        System.out.println("\nSelect a member to " + action + ":");
+        for (int i = 0; i < members.size(); i++) {
+            System.out.println((i + 1) + ". " + members.get(i).getName() + " (ID: " + members.get(i).getId() + ")");
+        }
+        System.out.print("Enter number: ");
+        Scanner sc = new Scanner(System.in);
+        int index = sc.nextInt() - 1;
+        sc.nextLine();
+        if (index >= 0 && index < members.size()) return members.get(index);
         System.out.println(Constants.MEMBER_NOT_FOUND);
         return null;
     }
@@ -36,44 +50,36 @@ public class MemberService {
             System.out.println(Constants.NO_MEMBERS);
             return;
         }
-        System.out.println("-----All Members ------");
-        for (Members member : members) {
-            member.getDetails();
-        }
+        System.out.println("----- All Members ------");
+        for (Members m : members) m.getDetails();
     }
+
     public void register() {
-        Scanner scanner = new Scanner(System.in);
+        Scanner sc = new Scanner(System.in);
+        Members member = new Members();
+        member.setId(UUID.randomUUID());
+        System.out.print("Enter Name: ");
+        member.setName(sc.nextLine());
 
-        System.out.println("Enter Member id");
-        String memberId = scanner.nextLine();
+        System.out.print("Enter Street: ");
+        String street = sc.nextLine();
+        System.out.print("Enter City: ");
+        String city = sc.nextLine();
+        System.out.print("Enter Postal Code: ");
+        String postal = sc.nextLine();
+        Adrress addr = new Adrress(street, city, postal);
+        member.setAdress(addr);
 
-        System.out.println("Member Name");
-        String name = scanner.nextLine();
-
-        System.out.println("Enter Street ");
-        String street = scanner.nextLine();
-
-        System.out.println("Enter City");
-        String city = scanner.nextLine();
-
-        System.out.println("Enter Postalcode");
-        String postalCode = scanner.nextLine();
-
-        Adrress address = new Adrress(street, city, postalCode);
-        Members member = new Members(memberId, name, address);
         registerMember(member);
     }
-    public Boolean handleMemberMenu(Integer memberOption) {
-        switch (memberOption) {
+
+    public Boolean handleMemberMenu(Integer option) {
+        switch (option) {
             case 1 -> {
                 register();
             }
             case 2 -> {
-                if (members.isEmpty()) {
-                    System.out.println(Constants.NO_MEMBERS);
-                } else {
-                    listAllMembers();
-                }
+                listAllMembers();
             }
             case 3 -> {
                 return false;
@@ -81,7 +87,4 @@ public class MemberService {
         }
         return true;
     }
-
-
-
 }

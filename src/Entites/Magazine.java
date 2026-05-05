@@ -7,11 +7,13 @@ public class Magazine extends LibraryItem {
     private String issueNumber;
     private String publisher;
 
-    public Magazine(String id, String title, String issueNumber, String publisher) {
-        super(id, title, true);
-        this.issueNumber = issueNumber;
-        this.publisher = publisher;
-    }
+    public Magazine() {}
+
+    public String getIssueNumber() { return issueNumber; }
+    public void setIssueNumber(String issueNumber) { this.issueNumber = issueNumber; }
+
+    public String getPublisher() { return publisher; }
+    public void setPublisher(String publisher) { this.publisher = publisher; }
 
     @Override
     public void getDetails() {
@@ -22,10 +24,4 @@ public class Magazine extends LibraryItem {
         System.out.println("  Publisher : " + publisher);
         System.out.println("  Status    : " + (getStatus() ? Constants.STATUS_AVAILABLE : Constants.STATUS_CHECKED_OUT));
     }
-
-    public String getIssueNumber() { return issueNumber; }
-    public void setIssueNumber(String issueNumber) { this.issueNumber = issueNumber; }
-
-    public String getPublisher() { return publisher; }
-    public void setPublisher(String publisher) { this.publisher = publisher; }
 }

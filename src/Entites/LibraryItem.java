@@ -2,48 +2,44 @@ package Entites;
 
 import Behaviour.Borrowable;
 import Constant.Constants;
+import java.util.UUID;
 
 public abstract class LibraryItem implements Borrowable {
 
-    private String id;
+    private UUID id;
     private String title;
-    private Boolean status = true;
+    private boolean status = true;
 
-
-    public LibraryItem(String id, String title, Boolean status) {
-        this.id = id;
-        this.title = title;
-        this.status = status;
-    }
+    public LibraryItem() {}
 
     @Override
     public Boolean checkOut() {
-        if (status == true) {
+        if (!status) {
             System.out.println(Constants.ALREADY_CHECKED_OUT);
             return false;
         }
-        this.status = false;
+        status = false;
         return true;
     }
 
     @Override
     public Boolean returnItem() {
-        if (status == false) {
+        if (status) {
             System.out.println(Constants.NOT_CHECKED_OUT);
             return false;
         }
-        this.status = true;
+        status = true;
         return true;
     }
 
     public abstract void getDetails();
 
-    public String getId() { return id; }
-    public void setId(String id) { this.id = id; }
+    public UUID getId() { return id; }
+    public void setId(UUID id) { this.id = id; }
 
     public String getTitle() { return title; }
     public void setTitle(String title) { this.title = title; }
 
-    public Boolean getStatus() { return status; }
-    public void setStatus(Boolean status) { this.status = status; }
+    public boolean getStatus() { return status; }
+    public void setStatus(boolean status) { this.status = status; }
 }

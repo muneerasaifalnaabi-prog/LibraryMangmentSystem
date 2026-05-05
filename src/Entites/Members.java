@@ -2,55 +2,38 @@ package Entites;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 public class Members {
-    //completed
-    private String id;
-    private String name ;
+
+    private UUID id;
+    private String name;
     private Adrress adress;
-    private List<String> borrowItem;
+    private List<LibraryItem> borrowedItems;
 
-    public Members(String name, String id, Adrress adress) {
-        this.name = name;
-        this.id = id;
-        this.adress = adress;
-        this.borrowItem = new ArrayList<>();
+    public Members() {
+        this.borrowedItems = new ArrayList<>();
     }
 
-    public String getId() {
-        return id;
+    public UUID getId() { return id; }
+    public void setId(UUID id) { this.id = id; }
+
+    public String getName() { return name; }
+    public void setName(String name) { this.name = name; }
+
+    public Adrress getAdress() { return adress; }
+    public void setAdress(Adrress adress) { this.adress = adress; }
+
+    public List<LibraryItem> getBorrowedItems() {
+        return borrowedItems;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void addBorrowedItem(LibraryItem item) {
+        borrowedItems.add(item);
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public Adrress getAdress() {
-        return adress;
-    }
-
-    public void setAdress(Adrress adress) {
-        this.adress = adress;
-    }
-    public List<String> getBorrowedItems(LibraryItem item) {
-        return borrowItem;
-    }
-
-
-    public void addBorrowedItem(String itemId) {
-        borrowItem.add(itemId);
-    }
-
-    public boolean removeBorrowedItem(String itemId) {
-        return borrowItem.remove(itemId);
+    public boolean removeBorrowedItem(LibraryItem item) {
+        return borrowedItems.remove(item);
     }
 
     public void getDetails() {
@@ -58,6 +41,6 @@ public class Members {
         System.out.println("  ID       : " + id);
         System.out.println("  Name     : " + name);
         System.out.println("  Address  : " + adress);
-     //  System.out.println("  Borrowed : " + getBorrowedItems(item).size() + " item(s)");
+        System.out.println("  Borrowed : " + borrowedItems.size() + " item(s)");
     }
 }
