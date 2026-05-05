@@ -1,10 +1,12 @@
 package Service;
 
 import Constant.Constants;
+import Entites.Books;
 import Entites.LibraryItem;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class LibraryItemService {
     private List<LibraryItem> items =new ArrayList<>();
@@ -49,6 +51,24 @@ public class LibraryItemService {
 
         }
         System.out.println(Constants.NO_SEARSH_RESULT);
+    }
+    public void addBook() {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Enter Item ID");
+        String id = scanner.nextLine();
+
+        System.out.println("Enter Title Of Book");
+        String title = scanner.nextLine();
+
+        System.out.println("Enter Author ");
+        String author = scanner.nextLine();
+
+        System.out.println("Enter ISBN ");
+        String isbn = scanner.nextLine();
+
+        Books book = new Books(id, title, author, isbn);
+        addedItem(book);
     }
     public Boolean handleItemMenu(Integer itemOption) {
         switch (itemOption){
