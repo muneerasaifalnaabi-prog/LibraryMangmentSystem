@@ -1,5 +1,7 @@
 package Entites;
 
+import Constant.Constants;
+
 public class Magazine extends LibraryItem{
     private String issueNumber;
     private String publisher ;
@@ -24,5 +26,13 @@ public class Magazine extends LibraryItem{
 
     public void setPublisher(String publisher) {
         this.publisher = publisher;
+    }
+    public void getDetails() {
+        System.out.println("Magazin");
+        System.out.println("  ID     : " + getId());
+        System.out.println("  Title  : " + getTitle());
+        System.out.println("  Issue No : " + issueNumber);
+        System.out.println("  publisher   : " + publisher);
+        System.out.println("  Status : " + (getStatus() ? Constants.STATUS_AVAILABLE : Constants.STATUS_CHECKED_OUT));
     }
 }
