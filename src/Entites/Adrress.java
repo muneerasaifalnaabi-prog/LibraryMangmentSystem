@@ -23,10 +23,14 @@ public class Adrress {
         }
 
         public String getCity() {
+
                 return city;
         }
 
         public void setCity(String city) {
+                if (city==null){
+                        System.out.println("city cannot be empty.");
+                }
                 this.city = city;
         }
 
