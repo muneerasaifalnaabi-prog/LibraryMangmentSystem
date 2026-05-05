@@ -1,5 +1,6 @@
 package Service;
 
+import Constant.Constants;
 import Entites.LibraryItem;
 
 import java.util.ArrayList;
@@ -10,7 +11,8 @@ public class LibraryItemService {
 
     public void addedItem(LibraryItem item){
         items.add(item);
-        System.out.println();
+        System.out.println(Constants.SUCCESS_ITEM_ADDED);
     }
+
 
 }
