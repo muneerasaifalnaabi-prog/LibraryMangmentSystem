@@ -15,6 +15,6 @@ public class MemberService {
 
     public void registerMember(Member member){
         members.add(member);
-        System.out.println(Constants.SUCCESS_MEMBER_REGISTERE);
+        System.out.println(Constants.SUCCESS_MEMBER_REGISTERED);
     }
 }
