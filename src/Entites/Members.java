@@ -1,6 +1,7 @@
 package Entites;
 
 public class Members {
+    //completed
     private String id;
     private String name ;
     private Adrress adress;
