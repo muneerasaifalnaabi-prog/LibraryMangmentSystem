@@ -1,4 +1,6 @@
 package Entites;
 
 public class Magazine {
+    private String issueNumber;
+
 }
