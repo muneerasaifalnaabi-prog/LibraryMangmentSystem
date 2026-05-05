@@ -25,10 +25,11 @@ public class Books extends LibraryItem {
     public void setIsbn(String isbn) {
         this.isbn = isbn;
     }
-    public void getDetails(){
+    //public static void getDetails(){
+      //  System.out.println("Book Id : " +);
 
 
-    }
+   // }
 
 
 }
