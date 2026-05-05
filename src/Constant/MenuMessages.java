@@ -31,7 +31,7 @@ public class MenuMessages {
             1- Register a New Member
             2- List All Members
             3- Go back to Main Menu
-            ════════════════════════════════════
+            ═════════════════════════════════
             """;
 
     public static final String BORROWING_MENU_MESSAGE = """
@@ -44,5 +44,6 @@ public class MenuMessages {
             4- Go back to Main Menu
             ════════════════════════════════════
             """;
+
 }
 
