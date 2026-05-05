@@ -26,10 +26,11 @@ public class LibraryItemService {
 
     public void listOfAvailableBooks(){
         System.out.println("Available Books ___________:");
-        boolean fooundBook=false;
+        boolean foundBook=false;
         for (LibraryItem item:items){
             if (item.getStatus()) {
-                item.getDe
+                item.getDetails();
+                foundBook =true;
             }
         }
     }

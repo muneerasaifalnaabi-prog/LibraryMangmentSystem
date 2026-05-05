@@ -58,5 +58,9 @@ public class LibraryItem implements Borrowable {
         return true;
     }
 
+    public void getDetails() {
+
+    }
+
 
 }
