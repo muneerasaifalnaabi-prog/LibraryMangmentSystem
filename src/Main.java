@@ -1,5 +1,5 @@
 import Constant.MenuMessages;
-import Menu.Menu;
+import Menu.Menu;;
 import Service.BorrowingService;
 import Service.LibraryItemService;
 import Service.MemberService;
@@ -16,7 +16,7 @@ public class Main {
     public static void main(String[] args) {
         LibraryItemService itemService = new LibraryItemService();
         MemberService memberService = new MemberService();
-        BorrowingService borrowingService = new BorrowingService(itemService, memberService);
+        BorrowingService borrowingService = new BorrowingService();
 
         Boolean mainMenuContinue = true;
         while (mainMenuContinue) {
@@ -43,13 +43,23 @@ public class Main {
 
                     }
                 }
-                case 3 ->{
-
+                case 3 -> {
+                    Boolean borrowingMenuContinue = true;
+                    while (borrowingMenuContinue) {
+                        System.out.println(MenuMessages.BORROWING_MENU_MESSAGE);
+                        int borrowingOption = input.nextInt();
+                        borrowingMenuContinue = borrowingService. (borrowingOption);
+                    }
+                }
+                case 0 -> {
+                    menu.exit();
+                    mainMenuContinue = false;
                 }
 
-
             }
-
         }
     }
-}
+
+
+        }
+

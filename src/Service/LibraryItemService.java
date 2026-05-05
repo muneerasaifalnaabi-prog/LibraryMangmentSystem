@@ -23,7 +23,6 @@ public class LibraryItemService {
     }
 
     public LibraryItem findBookById(String id) {
-
         for (LibraryItem item : items) {
             if (item.getId().equals(id)) {
                 return item;
@@ -34,7 +33,7 @@ public class LibraryItemService {
     }
 
     public void listOfAvailableBooks() {
-        System.out.println("--------- Available Books --------");
+        System.out.println("--------- Available Items --------");
         boolean foundBook = false;
         for (LibraryItem item : items) {
             if (item.getStatus()) {
@@ -51,12 +50,13 @@ public class LibraryItemService {
         System.out.println("Search Results:");
         boolean foundBook = false;
         for (LibraryItem item : items) {
-            if (item.getTitle().toLowerCase().contains(t.toLowerCase())) {
+            // BUG FIX: null check on title before calling toLowerCase()
+            if (item.getTitle() != null && item.getTitle().toLowerCase().contains(t.toLowerCase())) {
                 item.getDetails();
+
                 foundBook = true;
             }
         }
-
         if (!foundBook) {
             System.out.println(Constants.NO_SEARSH_RESULT);
         }
@@ -86,19 +86,12 @@ public class LibraryItemService {
         String title = scanner.nextLine();
 
         System.out.println("Enter Issue Number");
-        int issueNumber;
-        try {
-            issueNumber = scanner.nextInt();
-            scanner.nextLine();
-        } catch (Exception e) {
-            System.out.println("Invalid issue number. Please enter a number.");
-            scanner.nextLine();
-            return;
-        }
+        String issueNumber = scanner.nextLine();
 
         System.out.println("Enter Publisher");
         String publisher = scanner.nextLine();
 
+        // BUG FIX: Magazine constructor now takes 4 args including publisher
         Magazine magazine = new Magazine(id, title, issueNumber, publisher);
         addedItem(magazine);
     }
@@ -128,9 +121,7 @@ public class LibraryItemService {
                     search();
                 }
             }
-            case 5 -> {
-                return false;
-            }
+            case 5 -> { return false; }
 
         }
         return true;

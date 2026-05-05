@@ -3,37 +3,16 @@ package Entites;
 import Behaviour.Borrowable;
 import Constant.Constants;
 
-public class LibraryItem implements Borrowable {
+public abstract class LibraryItem implements Borrowable {
+
     private String id;
-    private String title ;
-    private Boolean status=true;
+    private String title;
+    private Boolean status = true;
+
+
     public LibraryItem(String id, String title, Boolean status) {
         this.id = id;
         this.title = title;
-        this.status = status;
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public Boolean getStatus() {
-        return status;
-    }
-
-    public void setStatus(Boolean status) {
         this.status = status;
     }
 
@@ -57,9 +36,14 @@ public class LibraryItem implements Borrowable {
         return true;
     }
 
-    public void getDetails() {
+    public abstract void getDetails();
 
-    }
+    public String getId() { return id; }
+    public void setId(String id) { this.id = id; }
 
+    public String getTitle() { return title; }
+    public void setTitle(String title) { this.title = title; }
 
+    public Boolean getStatus() { return status; }
+    public void setStatus(Boolean status) { this.status = status; }
 }
