@@ -18,8 +18,8 @@ public class Constants {
 
     public static String NO_MEMBERS= "No members registered yet.";
 
-    public static  String BORROW_LIMIT_REACHED ="";
-    public static String SUCCESS_CHECKED_OUT ="";
+    public static  String BORROW_LIMIT_REACHED ="Borrow limit reached. Maximum 3 items allowed.";
+    public static String SUCCESS_CHECKED_OUT ="Item checked out successfully.";
 
 
 }
