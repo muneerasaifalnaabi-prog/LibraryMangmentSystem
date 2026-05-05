@@ -34,6 +34,10 @@ public class LibraryItemService {
             }
         }
     }
+    public void searchByTitle(String t){
+
+
+    }
 
 
 
