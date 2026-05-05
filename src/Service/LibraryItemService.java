@@ -21,7 +21,17 @@ public class LibraryItemService {
             }
         }
         System.out.println(Constants.ITEM_NOT_FOUND);
+        return null;
+    }
 
+    public void listOfAvailableBooks(){
+        System.out.println("Available Books ___________:");
+        boolean fooundBook=false;
+        for (LibraryItem item:items){
+            if (item.getStatus()) {
+                item.getDe
+            }
+        }
     }
 
 
