@@ -71,7 +71,7 @@ public class LibraryItemService {
         Books book = new Books(id, title, author, isbn);
         addedItem(book);
     }
-    public void addMagazineFromInput() {
+    public void addMagazine() {
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("Enter Magazine Id");
