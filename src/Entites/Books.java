@@ -1,5 +1,7 @@
 package Entites;
 
+import Constant.Constants;
+
 public class Books extends LibraryItem {
     private  String author;
     private String isbn;
@@ -25,11 +27,14 @@ public class Books extends LibraryItem {
     public void setIsbn(String isbn) {
         this.isbn = isbn;
     }
-    //public static void getDetails(){
-      //  System.out.println("Book Id : " +);
-
-
-   // }
+    public void getDetails() {
+        System.out.println("Book");
+        System.out.println("  ID     : " + getId());
+        System.out.println("  Title  : " + getTitle());
+        System.out.println("  Author : " + author);
+        System.out.println("  ISBN   : " + isbn);
+        System.out.println("  Status : " + (Constants.STATUS_AVAILABLE : Constants.STATUS_CHECKED_OUT);
+    }
 
 
 }
