@@ -90,6 +90,12 @@ public class LibraryItemService {
         Magazine magazine = new Magazine(id, title, issueNumber, publisher);
         addedItem(magazine);
     }
+    public void search() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter title To Search ");
+        String title = scanner.nextLine();
+        searchByTitle(title);
+    }
 
 
     public Boolean handleItemMenu(Integer itemOption) {
