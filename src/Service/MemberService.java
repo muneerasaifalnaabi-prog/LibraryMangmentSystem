@@ -63,6 +63,24 @@ public class MemberService {
         Members member = new Members(memberId, name, address);
         registerMember(member);
     }
+    public Boolean handleMemberMenu(Integer memberOption) {
+        switch (memberOption) {
+            case 1 -> {
+                register();
+            }
+            case 2 -> {
+                if (members.isEmpty()) {
+                    System.out.println(Constants.NO_MEMBERS);
+                } else {
+                    listAllMembers();
+                }
+            }
+            case 3 -> {
+                return false;
+            }
+        }
+        return true;
+    }
 
 
 

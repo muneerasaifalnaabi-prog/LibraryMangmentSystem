@@ -33,6 +33,15 @@ public class Main {
 
                     }
                 }
+                case 2 ->{
+                    Boolean memeberMenuContinue=true;
+                    while (memeberMenuContinue){
+                        System.out.println("-------------Member Menu---------");
+                        System.out.println(MenuMessages.MEMBER_MENU_MESSAGE);
+                        Integer itemOption = input.nextInt();
+                        memeberMenuContinue =memberService.handleMemberMenu(itemOption);
+
+                }
             }
 
 
