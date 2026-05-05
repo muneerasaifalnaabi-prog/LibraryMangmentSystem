@@ -39,13 +39,18 @@ public class LibraryItem implements Borrowable {
     }
 
     @Override
-    public boolean checkOut() {
+    public Boolean checkOut() {
         if (status == true) {
             System.out.println(Constants.ALREADY_CHECKED_OUT);
             return false;
         }
         this.status = false;
         return true;
+    }
+
+    @Override
+    public Boolean returnItem() {
+
     }
 
 
