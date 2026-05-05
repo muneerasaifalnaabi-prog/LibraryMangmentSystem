@@ -33,7 +33,7 @@ public class Books extends LibraryItem {
         System.out.println("  Title  : " + getTitle());
         System.out.println("  Author : " + author);
         System.out.println("  ISBN   : " + isbn);
-        System.out.println("  Status : " + (Constants.STATUS_AVAILABLE : Constants.STATUS_CHECKED_OUT);
+        System.out.println("  Status : " + (getStatus() ? Constants.STATUS_AVAILABLE : Constants.STATUS_CHECKED_OUT));
     }
 
 
