@@ -20,7 +20,7 @@ public class LibraryItemService {
 
     public LibraryItem findBookById(String id){
         for (LibraryItem item :items){
-            if (!item.getId().equals(null)){
+            if (!item.getId().equals(id)){
                 return item;
             }
         }
@@ -29,7 +29,7 @@ public class LibraryItemService {
     }
 
     public void listOfAvailableBooks(){
-        System.out.println("Available Books ___________:");
+        System.out.println("---------Available Books --------:");
         boolean foundBook=false;
         for (LibraryItem item:items){
             if (item.getStatus()) {

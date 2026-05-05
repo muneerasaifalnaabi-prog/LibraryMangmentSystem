@@ -1,17 +1,20 @@
 package Entites;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Members {
     //completed
     private String id;
     private String name ;
     private Adrress adress;
-    private String borrowItem;
+    private List<String> borrowItem;
 
-    public Members(String name, String id, Adrress adress, String borrowItem) {
+    public Members(String name, String id, Adrress adress) {
         this.name = name;
         this.id = id;
         this.adress = adress;
-        this.borrowItem = borrowItem;
+        this.borrowItem = new ArrayList<>();
     }
 
     public String getId() {
@@ -37,12 +40,24 @@ public class Members {
     public void setAdress(Adrress adress) {
         this.adress = adress;
     }
-
-    public String getBorrowItem() {
+    public List<String> getBorrowedItems() {
         return borrowItem;
     }
 
-    public void setBorrowItem(String borrowItem) {
-        this.borrowItem = borrowItem;
+
+    public void addBorrowedItem(String itemId) {
+        borrowItem.add(itemId);
+    }
+
+    public boolean removeBorrowedItem(String itemId) {
+        return borrowItem.remove(itemId);
+    }
+
+    public void getDetails() {
+        System.out.println("Member");
+        System.out.println("  ID       : " + id);
+        System.out.println("  Name     : " + name);
+        System.out.println("  Address  : " + adress);
+        System.out.println("  Borrowed : " + getBorrowedItems().size() + " item(s)");
     }
 }

@@ -14,6 +14,9 @@ public class Constants {
     public static String NO_SEARSH_RESULT ="Not found the title of book ";
 
     public static String SUCCESS_MEMBER_REGISTERED = "Member registered successfully.";
+    public static String MEMBER_NOT_FOUND= "Member not found.";
+
+    public static String NO_MEMBERS= "No members registered yet.";
 
 
 }
