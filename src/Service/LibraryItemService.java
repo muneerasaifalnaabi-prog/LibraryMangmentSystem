@@ -14,5 +14,11 @@ public class LibraryItemService {
         System.out.println(Constants.SUCCESS_ITEM_ADDED);
     }
 
+    public LibraryItem findBookById(String id){
+
+    }
+
+
+
 
 }
