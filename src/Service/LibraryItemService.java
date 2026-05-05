@@ -40,8 +40,11 @@ public class LibraryItemService {
         for (LibraryItem item : items) {
             if (item.getTitle().toLowerCase().contains(t.toLowerCase())) {
                 item.getDetails();
+                foundBook =true;
             }
+
         }
+        System.out.println(Constants.NO_SEARSH_RESULT);
 
 
     }
