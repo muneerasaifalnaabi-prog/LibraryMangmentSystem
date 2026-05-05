@@ -1,7 +1,7 @@
 package Menu;
 
 public interface MenuInterface {
+     void displayMenu();
+     void exit();
 
-    public void display();
-    public void exit();
 }
