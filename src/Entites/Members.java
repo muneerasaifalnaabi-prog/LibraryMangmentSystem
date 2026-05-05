@@ -40,7 +40,7 @@ public class Members {
     public void setAdress(Adrress adress) {
         this.adress = adress;
     }
-    public List<String> getBorrowedItems() {
+    public List<String> getBorrowedItems(LibraryItem item) {
         return borrowItem;
     }
 
@@ -58,6 +58,6 @@ public class Members {
         System.out.println("  ID       : " + id);
         System.out.println("  Name     : " + name);
         System.out.println("  Address  : " + adress);
-        System.out.println("  Borrowed : " + getBorrowedItems().size() + " item(s)");
+        System.out.println("  Borrowed : " + getBorrowedItems(item).size() + " item(s)");
     }
 }
