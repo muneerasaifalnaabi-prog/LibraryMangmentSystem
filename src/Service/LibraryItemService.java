@@ -15,6 +15,12 @@ public class LibraryItemService {
     }
 
     public LibraryItem findBookById(String id){
+        for (LibraryItem item :items){
+            if (!item.getId().equals(null)){
+                return item;
+            }
+        }
+        System.out.println(Constants.ITEM_NOT_FOUND);
 
     }
 
