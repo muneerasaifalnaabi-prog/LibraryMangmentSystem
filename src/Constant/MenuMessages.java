@@ -8,7 +8,7 @@ public class MenuMessages {
             1- Item Menu
             2- Member Menu
             3- Borrowing Menu
-            0- Exit
+            6- Exit
             ════════════════════════════════════
             """;
 

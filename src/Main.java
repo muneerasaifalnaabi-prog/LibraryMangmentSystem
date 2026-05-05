@@ -19,6 +19,17 @@ public class Main {
 
         Boolean mainMenuContinue=true;
         while (mainMenuContinue){
+            menu.displayMenu();
+            Integer option =input.nextInt();
+            switch (option){
+                case 1 ->{
+                    Boolean itemMenuContinue=true;
+                    while (itemMenuContinue){
+                        System.out.println("-------------Item Menu---------");
+
+                    }
+                }
+            }
 
 
         }

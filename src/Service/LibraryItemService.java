@@ -50,6 +50,15 @@ public class LibraryItemService {
         }
         System.out.println(Constants.NO_SEARSH_RESULT);
     }
+    public Boolean handleItemMenu(Integer itemOption) {
+        switch (itemOption){
+            case 1->{
+                addedItem();
+            }
+
+        }
+
+    }
 
 
 
