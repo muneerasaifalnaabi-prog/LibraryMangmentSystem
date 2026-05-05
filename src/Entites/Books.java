@@ -4,6 +4,11 @@ public class Books {
     private  String author;
     private String isbn;
 
+    public Books(String author, String isbn) {
+        this.author = author;
+        this.isbn = isbn;
+    }
+
     public String getAuthor() {
         return author;
     }
