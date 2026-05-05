@@ -1,6 +1,6 @@
 package Entites;
 
-public class Books {
+public class Books extends LibraryItem {
     private  String author;
     private String isbn;
 
