@@ -39,6 +39,9 @@ public class Adrress {
         }
 
         public void setPostalCode(String postalCode) {
+                if (postalCode==null){
+                        System.out.println("postalCode cannot be empty.");
+                }
                 this.postalCode = postalCode;
         }
 }
