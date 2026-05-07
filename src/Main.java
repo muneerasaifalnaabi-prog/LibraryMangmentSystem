@@ -67,38 +67,30 @@ public class Main {
         switch (option) {
             case 1 -> {
                     System.out.println(MenuMessages.ITEM_MENU_MESSAGE);
-                    Integer itemOption = input.nextInt();
-                    itemService.handleItemMenu(itemOption);
-                handleMainMenu();
+                    itemService.handleItemMenu();
+                    handleMainMenu();
 
                 }
-            }
             case 2 -> {
 
                     System.out.println("-------------Member Menu---------");
                     System.out.println(MenuMessages.MEMBER_MENU_MESSAGE);
-                    Integer itemOption = input.nextInt();
-                  memberService.handleMemberMenu(itemOption);
+                     memberService.handleMemberMenu();
+                       handleMainMenu();
 
-                }
+
             }
             case 3 -> {
-                Boolean borrowingMenuContinue = true;
-                while (borrowingMenuContinue) {
+
                     System.out.println(MenuMessages.BORROWING_MENU_MESSAGE);
-                    int borrowingOption = input.nextInt();
-                    borrowingMenuContinue = borrowingService.handleBorrowingMenu(borrowingOption);
+                    borrowingService.handleBorrowingMenu();
+                      handleMainMenu();
                 }
-            }
+
             case 6 -> {
-                menu.exit();
-                mainMenuContinue = false;
+                System.out.println("Exit from system .........");
             }
-
         }
-
-
     }
-
         }
 
