@@ -60,6 +60,7 @@ public class Main {
     }
     public static void  handleMainMenu(){
         Menu menu = new Menu();
+        System.out.println("Enter Your Choice");
         menu.displayMenu();
 
     }
