@@ -16,7 +16,7 @@ public class Main {
         MemberService memberService = new MemberService();
         BorrowingService borrowingService = new BorrowingService(itemService, memberService);
 
-        Boolean mainMenuContinue = true;
+   /*     Boolean mainMenuContinue = true;
         while (mainMenuContinue) {
             System.out.println("Enter Your Choice");
             menu.displayMenu();
@@ -56,8 +56,13 @@ public class Main {
 
             }
         }
+    }*/
     }
+    public static void  handleMainMenu(){
+        Menu menu = new Menu();
+        menu.displayMenu();
 
+    }
 
         }
 
