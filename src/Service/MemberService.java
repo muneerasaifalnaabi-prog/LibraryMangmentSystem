@@ -74,18 +74,22 @@ public class MemberService {
         registerMember(member);
     }
 
-    public Boolean handleMemberMenu() {
+    public void  handleMemberMenu() {
+        int option =scanner.nextInt();
         switch (option) {
             case 1 -> {
                 register();
+                handleMemberMenu();
             }
             case 2 -> {
                 listAllMembers();
+                handleMemberMenu();
             }
             case 3 -> {
-                return false;
+                System.out.println("Exit Members Service ...");
+                return;
             }
         }
-        return true;
+
     }
 }
