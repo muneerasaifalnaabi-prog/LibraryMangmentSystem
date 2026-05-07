@@ -7,10 +7,11 @@ import Entites.Members;
 import java.util.Scanner;
 
 public class BorrowingService {
-
+    static Scanner scanner = new Scanner(System.in);
     private LibraryItemService itemService;
     private MemberService memberService;
     private static  int MAX_BORROW_LIMIT = 5;
+
 
     public BorrowingService(LibraryItemService itemService, MemberService memberService) {
         this.itemService = itemService;
@@ -84,21 +85,30 @@ public class BorrowingService {
         }
     }
 
-    public Boolean handleBorrowingMenu(Integer option) {
+   public void handleBorrowingMenu() {
+        int option =scanner.nextInt();
         switch (option) {
             case 1 -> {
                 borrowItem();
+                handleBorrowingMenu();
             }
             case 2 ->{
                 returnItem();
+                handleBorrowingMenu();
             }
             case 3 -> {
                 viewBorrowed();
+                handleBorrowingMenu();
             }
             case 4 -> {
-                return false;
+                System.out.println("Exit Borrow Service...");
+                return;
+
             }
         }
-        return true;
+
+    }
+
+
     }
 }
