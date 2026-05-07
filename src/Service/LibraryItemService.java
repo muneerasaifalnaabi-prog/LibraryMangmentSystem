@@ -11,6 +11,7 @@ import java.util.Scanner;
 import java.util.UUID;
 
 public class LibraryItemService {
+    static Scanner scanner = new Scanner(System.in);
 
     private List<LibraryItem> items = new ArrayList<>();
 
@@ -108,24 +109,30 @@ public class LibraryItemService {
         searchByTitle(sc.nextLine());
     }
 
-    public Boolean handleItemMenu(Integer option) {
+    public void handleItemMenu() {
+        int option =scanner.nextInt();
         switch (option) {
             case 1 -> {
                 addBook();
+                handleItemMenu();
             }
             case 2 ->{
                 addMagazine();
+                handleItemMenu();
             }
             case 3 -> {
                 listAvailableItems();
+                handleItemMenu();
             }
             case 4 -> {
                 search();
+                handleItemMenu();
             }
             case 5 -> {
-                return false;
+                System.out.println("Exit Library Service ");
+                return;
             }
         }
-        return true;
+
     }
 }

@@ -10,6 +10,7 @@ import java.util.Scanner;
 import java.util.UUID;
 
 public class MemberService {
+    static Scanner scanner = new Scanner(System.in);
 
 
     private List<Members> members = new ArrayList<>();
@@ -73,7 +74,7 @@ public class MemberService {
         registerMember(member);
     }
 
-    public Boolean handleMemberMenu(Integer option) {
+    public Boolean handleMemberMenu() {
         switch (option) {
             case 1 -> {
                 register();
